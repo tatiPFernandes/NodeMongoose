@@ -1,4 +1,4 @@
-const { updateOne } = require("./movieModels")
+const { update } = require("./movieModels")
 const Movie = require("./movieModels")
 
 exports.addMovie = async(movieObj) =>{
@@ -19,12 +19,21 @@ exports.listMovies = async() =>{
     }
 }
 
-exports.updateMovie = async(movieObj, key) => {
+exports.updateMovie = async(movieObj) => {
     try{
-      await Movie.updateOne(movieObj , key)
-        //await movieUpdated.save()
+      await Movie.updateOne(movieObj)
+        //await movieUpdate.save()
     }catch(error){
         console.log(error)
     }
 
+}
+
+exports.deleteMovie = async(movieObj, key)=>{
+    try{
+        await Movie.deleteOne(movieObj, key)
+
+    }catch(error){
+        console.log(error)
+    }
 }

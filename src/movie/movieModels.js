@@ -9,8 +9,24 @@ const movieSchema = new mongoose.Schema({
     },
     actor:{
         type:String,
+        require:true
 
+    },
+    actress:{
+        type: String,
+        require: true
+    },
+    rating:{
+        type: String,
+        require: true
+    },
+    year:{
+        type: Number,
+        require: true
     }
+
+
+
 })
 
 const Movie = mongoose.model("Movie", movieSchema)
